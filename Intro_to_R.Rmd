@@ -1,0 +1,445 @@
+---
+title: "Introduction to R"
+subtitle: ""
+author: "Emma Vestesson"
+institute: ""
+date: "2021-10-22"
+output:
+  xaringan::moon_reader:
+    css: [default, fc, chocolate-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r, include = FALSE}
+library(gapminder)
+library(tidyverse)
+```
+
+
+
+# About me 
+
+10 years working as a data analyst – primarily in healthcare 
+
+Started my career in Geneva and then moved to London 
+
+Senior data analyst at a health care charity
+
+Part-time PhD student at UCL Institute of child health - clinical data science
+
+- One year placement at the Alan Turing Institute - the UK's national institute for data science and artificial intelligence
+
+RStudio certified trainer
+
+R-Ladies London organiser
+---
+# Housekeeping
+
+Slido/chat for interaction 
+
+Questions in chat or just interrupt me 
+
+Please stay muted unless you are asking a question 
+
+Cameras on or off – always nice to see people’s faces but it is your choice 
+
+45min + 15 break final session will be 30 min  
+
+----
+
+#slido time!
+
+
+---
+
+# Aim of this morning
+
+
+Make you familiar with R 
+
+Show the possibilities of R  - focus on plotting
+
+Make you comfortable to learn more own your own or in more advanced courses 
+
+---
+# What is R?
+
+R is an *open source* programming language [R project website](https://www.r-project.org/)
+
+Open source is closely linked to open science
+
+```{r, out.width='25%',  echo = FALSE, fig.align='right'}
+knitr::include_graphics('https://www.r-project.org/logo/Rlogo.png')
+```
+
+--
+
+Popular in academia and industry 
+
+RStudio is the most popular interface (IDE) - free to download [RStudio website](https://www.rstudio.com/)
+
+R packages – this is where most of the functionality comes from [CRAN package repository](https://cran.r-project.org/)
+
+---
+
+# Environment today
+
+RStudio cloud 
+
+Easy to sign up (eg using a google account) 
+
+Got to RStudio cloud now 
+
+---
+
+# Tour of RStudio
+
+Console – interactive (show how to create objects) 
+
+Environment – any data or objects will be saved here 
+
+Files/plots/packages/help -  files 
+
+Scripts – good practice to save your code 
+
+---
+
+# Did you have a play with RStudio? 
+
+---
+
+# Packages
+class: centre, middle
+
+The first time you use a package you need to install the package. 
+
+```r
+install.packages("tidyverse")
+```
+
+Load the package
+
+```r
+library(tidyverse)
+library(lubridate)
+```
+
+
+---
+
+![](bookcase.jpg)
+
+---
+# Getting help in RStudio
+Search in right hand corner 
+
+Click on ‘foreign’ package 
+
+?`function_name` 
+
+Help(‘’) 
+
+---
+background-image: url('mean_help_screen.png')
+background-size: contain
+
+---
+class: middle
+
+What package is the function `left_join` from? 
+
+What arguments are needed in the `ggplot` function?  
+
+
+---
+
+## The pipe
+
+Simplifying R code with pipes (%>%)
+
+
+nested statement
+```r
+leave_house(get_dressed(get_out_of_bed(wake_up(me))))
+```
+VS
+
+piped statement
+```r
+me %>% 
+  wake_up() %>% 
+  get_out_of_bed() %>% 
+  get_dressed() %>% 
+  leave_house()
+```
+
+**Keyboard shortcut ctrl+shift +m**
+
+
+---
+
+class: inverse, middle, center
+
+
+
+# Break
+
+---
+
+# Loading data
+
+R native data sets 
+
+Able to handle most file formats – excel, csv, .dta, ssd01 but also parquet files (`haven`, `arrow` packages)
+
+R can connect to databases eg most flavours of sql 
+
+R can have multiple dataset in memory at once 
+
+R can access data stored locally or on the web 
+---
+# read in our first csv
+
+
+- file>import data set
+```{r, eval=FALSE}
+read.csv('path_to_file/file_mame.csv')
+```
+
+
+----
+
+# Gapminder data set
+
+- "Gapminder is an independent educational non-proﬁt ﬁghting global misconceptions"
+- Downloaded using `gapminder` package
+- Based on free material from GAPMINDER.ORG, CC-BY LICENSE
+---
+class: inverse, middle, center
+# Let's head over to RStudio to look at the gapminder package 
+---
+# Tidyverse
+- A set of packages with consistent syntax 
+
+- Very popular and well documented 
+
+- Vignettes - tutorial styled blogs
+
+- ggplot2 – plot data 
+
+- dplyr – manipulate data 
+
+
+
+
+---
+![](https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/ggplot2_masterpiece.png?raw=true)
+
+---
+
+## ggplot2 syntax
+
+- Based on the grammar of graphics - build your plots layer by layer
+
+- Comes with infinite tweaks 
+
+- Part of the tidyverse but there are also extension eg `ggdogs`
+
+```{r, eval = FALSE}
+library(gapminder)
+ggplot(data = gapminder, aes(x = year, y = pop)) +
+  geom_point() +
+  scale_x_date() +
+  theme_bw() +
+  theme()
+  
+```
+
+
+
+---
+
+# Go back to Rstudio and gapminder (5 min) 
+
+Create a scatter plot of life expectancy and Gdp per capita 
+
+Prettify plots – add a theme, change the colour of the points 
+
+---
+background-image: url()
+![](https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_filter.jpg?raw=true)
+
+---
+
+- ==, >, >= etc
+
+- &, |, !, xor()
+
+- is.na()
+
+- between(), near()
+
+- %in%
+
+
+
+---
+class: middle, centre
+# Let's create a smaller data set using filter and plot it
+---
+
+![](https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true)
+
+---
+# Functions to use with mutate
+- +, -, log(), etc., for their usual mathematical meanings
+
+- lead(), lag()
+
+- dense_rank(), min_rank(), percent_rank(), row_number(), cume_dist(), ntile()
+
+- cumsum(), cummean(), cummin(), cummax(), cumany(), cumall()
+
+- na_if(), coalesce()
+
+- if_else(), recode(), case_when()
+
+
+---
+
+# Let's create a new variable
+
+---
+# Select
+
+Operates on variables. It keeps or drops variables
+
+```{r, eval= FALSE}
+gapminder %>% 
+  select(pop, year)
+```
+
+variables are dropped by adding *-*
+```{r, eval = FALSE}
+gapminder %>% 
+  select(-country)
+```
+---
+# Functions to use with select
+
+- `everything()`: Matches all variables.
+
+- `last_col()`: Select last variable, possibly with an offset.
+
+- `starts_with()`: Starts with a prefix.
+
+- `ends_with()`: Ends with a suffix.
+
+- `contains()`: Contains a literal string.
+
+- `matches()`: Matches a regular expression.
+
+- `num_range()`: Matches a numerical range like x01, x02, x03.
+
+- `where()`: Applies a function to all variables and selects those for which the function returns TRUE (eg `is.character()`).
+---
+
+# summarise (or summarize)
+
+- similar to mutate but collapses your data set
+- often paired with `group_by()`
+---
+
+# Let's summarise and plot  the data
+---
+class: inverse, middle
+
+
+---
+
+![](https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/patchwork_1.jpg?raw=true)
+
+# Break
+
+---
+# Publication ready tables
+
+
+- Package called `gtsummary `
+
+- Relies on a broom and broom.mixed for regression models 
+
+- Closely linked to gt package 
+- Tables can be saved in multiple formats – good to know the final format  
+
+---
+# Crosstable
+
+Two variables
+
+```{r}
+library(gtsummary)
+trial %>% 
+  tbl_cross(trt, response)
+```
+
+---
+
+```{r}
+library(gtsummary)
+trial %>% 
+  tbl_cross(trt, response, percent = 'col')
+```
+
+
+---
+
+```{r}
+library(gtsummary)
+trial %>% 
+  tbl_cross(trt, response, percent = 'row') %>% 
+  add_p()
+```
+
+---
+# Table 1
+
+```{r}
+  trial %>%
+  tbl_summary(
+    by = trt,
+    label = list(age = "Patient Age")
+  )
+```
+
+---
+
+```{r}
+  trial %>%
+  tbl_summary(
+    by = trt,
+    label = list(age = "Patient Age")
+  ) %>% 
+  add_p()
+```
+
+---
+
+# Regression table
+
+```{r}
+  glm(response ~ age + grade, trial, family = binomial(link = "logit")) %>%
+  tbl_regression(exponentiate = TRUE)
+```
+
+---
+
+# Extra resources
+
+- R for data science book
+- rstats on twitter (you don't need to be signed in) - particular tidytuesday
+- Blog on [ggplot2 themes](https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/#ggplot2-theme-components)
+- Local R meetup groups https://www.meetup.com/Geneve-R-User-Group/

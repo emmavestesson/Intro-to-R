@@ -1,0 +1,6 @@
+install.packages('tidyverse')
+install.packages('gapminder')
+install.packages('patchwork')
+install.packages('ggthemes')
+install.packages('gtsummary')
+install.packages('officer')
