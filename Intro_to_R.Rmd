@@ -264,7 +264,7 @@ ggplot(data = gapminder, aes(x = year, y = pop)) +
 
 # Go back to Rstudio and gapminder (5 min) 
 
-Create a scatter plot of life expectancy and Gdp per capita 
+Create a scatter plot of life expectancy and GDP per capita 
 
 Prettify plots – add a theme, change the colour of the points 
 
