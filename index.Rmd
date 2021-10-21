@@ -38,7 +38,7 @@ R-Ladies London organiser
 ---
 # Housekeeping
 
-Slido/chat for interaction 
+Chat for interaction 
 
 Questions in chat or just interrupt me 
 
@@ -52,7 +52,7 @@ https://emmavestesson.github.io/Intro-to-R/#1
 
 ---
 
-#slido time!
+# Let's get to know each other
 
 
 ---
@@ -203,9 +203,13 @@ me %>%
 # Loading data
 
 R has a native data format - `.RDS` 
+
 --
+
 Able to handle most file formats – xls, csv, .dta, ssd01 but also parquet files (`haven`, `arrow` packages)
+
 --
+
 R can connect to databases eg most flavours of sql 
 
 --
@@ -242,9 +246,15 @@ class: inverse, middle, center
 - Based on free material from GAPMINDER.ORG, CC-BY LICENSE
 ---
 class: inverse, middle, center
-# Let's head over to RStudio to look at the gapminder package 
+
+# Let's head over to RStudio to look at the gapminder data
+
 ---
+
 # Tidyverse
+
+R packages are devloped by different people and there is inconsistencies
+--
 - A set of packages with consistent syntax 
 
 - Very popular and well documented 
@@ -273,11 +283,12 @@ class: inverse, middle, center
 
 ```{r, eval = FALSE}
 library(gapminder)
-ggplot(data = gapminder, aes(x = year, y = pop)) +
-  geom_point() +
-  scale_x_date() +
-  theme_bw() +
-  theme()
+ggplot(data = gapminder, aes(x = year, y = pop)) + # data layer
+  geom_point() + # geom layer
+  scale_x_date() + # scale for x axis
+  scale_y_continuous() + # scale for y axis
+  theme_bw() + # pre-made theme
+  theme() # theme function to customise further
   
 ```
 
@@ -285,17 +296,16 @@ ggplot(data = gapminder, aes(x = year, y = pop)) +
 
 ---
 
-# Go back to Rstudio and gapminder (5 min) 
+# Go back to Rstudio and gapminder 
 
-Create a scatter plot of life expectancy and GDP per capita 
 
-Prettify plots – add a theme, change the colour of the points 
 
 ---
 background-image: url()
 ![](https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_filter.jpg?raw=true)
 
 ---
+# Operators to use with filter
 
 - ==, >, >= etc
 
@@ -312,6 +322,17 @@ background-image: url()
 ---
 class: middle, centre
 # Let's create a smaller data set using filter and plot it
+
+---
+# Quick quiz
+
+If I run filter on a data set, what is the most likely outcome? 
+
+ 1. fewer rows
+ 1. more rows
+ 3. fewer variables
+
+
 ---
 
 ![](https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true)
@@ -376,15 +397,22 @@ gapminder %>%
 - often paired with `group_by()`
 ---
 
-# Let's summarise and plot  the data
+# Let's summarise and plot the data
 ---
-class: inverse, middle
 
+# Quick quiz
+
+If I want to create a new variable. What function could I use? 
+
+1. filter
+2. select
+3. mutate
 
 ---
 
 ![](https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/patchwork_1.jpg?raw=true)
-
+---
+class: inverse, middle
 # Break
 
 ---
@@ -457,12 +485,21 @@ trial %>%
   glm(response ~ age + grade, trial, family = binomial(link = "logit")) %>%
   tbl_regression(exponentiate = TRUE)
 ```
+---
 
+![](https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/r_first_then.png?raw=true)
 ---
 
 # Extra resources
 
 - R for data science book
-- rstats on twitter (you don't need to be signed in) - particular tidytuesday
+- #rstats on twitter (you don't need to be signed in) - particular #tidytuesday
 - Blog on [ggplot2 themes](https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/#ggplot2-theme-components)
 - Local R meetup groups https://www.meetup.com/Geneve-R-User-Group/
+
+---
+class: inverse, middle, centre
+
+# Thank you!
+
+- Illustrations are by Allison Horst
