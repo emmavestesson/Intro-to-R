@@ -1,13 +1,9 @@
-# use R as a calculator
-
+# use R as a calculator (ctrl+ enter run the current line or highlighted code)
 
 
 # writing example (words, number of days, words per day)
 
 
-words <- 
-number_of_days <- 
-words_per_day <- words/days
 
 # what happens if the deadline is moved so that I get 3 more days?
 
@@ -15,5 +11,9 @@ words_per_day <- words/days
 
 
 
-# functions (mean of a vector, sum of a vector)
+# functions (mean of a vector, sum of a vector) (book example)
+
+
+
+# missing values
 
