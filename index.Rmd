@@ -51,12 +51,14 @@ Cameras on or off – always nice to see people’s faces but it is your choice
 https://emmavestesson.github.io/Intro-to-R/#1
 
 ---
-
+class: inverse, middle, centre
 # Let's get to know each other
 
+- where are you joining from?
+- What programming languages have you used before? 
 
 ---
-class: middle
+class: middle, centre
 # Aim of this morning
 
 
@@ -353,7 +355,7 @@ If I run filter on a data set, what is the most likely outcome?
 
 
 ---
-
+class: inverse, middle, centre
 # Let's create a new variable
 
 ---
@@ -396,7 +398,7 @@ gapminder %>%
 - similar to mutate but collapses your data set
 - often paired with `group_by()`
 ---
-
+class: inverse, middle, centre
 # Let's summarise and plot the data
 ---
 
@@ -493,7 +495,7 @@ trial %>%
 # Extra resources
 
 - R for data science book
-- #rstats on twitter (you don't need to be signed in) - particular #tidytuesday
+- Search for #rstats on twitter (you don't need to be signed in) - particular #tidytuesday
 - Blog on [ggplot2 themes](https://themockup.blog/posts/2020-12-26-creating-and-using-custom-ggplot2-themes/#ggplot2-theme-components)
 - Local R meetup groups https://www.meetup.com/Geneve-R-User-Group/
 
