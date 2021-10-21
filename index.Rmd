@@ -28,7 +28,7 @@ Started my career in Geneva and then moved to London
 
 Senior data analyst at a health care charity
 
-Part-time PhD student at UCL Institute of child health - clinical data science
+Part-time PhD student at UCL Institute of Child Health - clinical data science
 
 - One year placement at the Alan Turing Institute - the UK's national institute for data science and artificial intelligence
 
@@ -48,21 +48,31 @@ Cameras on or off – always nice to see people’s faces but it is your choice
 
 45min + 15 break final session will be 30 min  
 
-----
+https://emmavestesson.github.io/Intro-to-R/#1
+
+---
 
 #slido time!
 
 
 ---
-
+class: middle
 # Aim of this morning
 
 
 Make you familiar with R 
 
-Show the possibilities of R  - focus on plotting
+--
+Show the possibilities of R  
+- Manipulate a data set
 
-Make you comfortable to learn more own your own or in more advanced courses 
+- Create nice looking plots
+
+- Create nice looking tables
+
+
+I hope that you will leave today's session wanting to learn more!
+
 
 ---
 # What is R?
@@ -79,7 +89,11 @@ knitr::include_graphics('https://www.r-project.org/logo/Rlogo.png')
 
 Popular in academia and industry 
 
+--
+
 RStudio is the most popular interface (IDE) - free to download [RStudio website](https://www.rstudio.com/)
+
+--
 
 R packages – this is where most of the functionality comes from [CRAN package repository](https://cran.r-project.org/)
 
@@ -91,11 +105,14 @@ RStudio cloud
 
 Easy to sign up (eg using a google account) 
 
-Got to RStudio cloud now 
+### Let's go to RStudio cloud now 
 
+[RStudio.cloud](rstudio.cloud)
 ---
 
 # Tour of RStudio
+
+Start a new project from a git project [URL for you to use](https://github.com/emmavestesson/Intro-to-R)
 
 Console – interactive (show how to create objects) 
 
@@ -106,13 +123,13 @@ Files/plots/packages/help -  files
 Scripts – good practice to save your code 
 
 ---
-
+class: inverse
 # Did you have a play with RStudio? 
 
 ---
-
-# Packages
 class: centre, middle
+# Packages
+
 
 The first time you use a package you need to install the package. 
 
@@ -134,13 +151,13 @@ library(lubridate)
 
 ---
 # Getting help in RStudio
-Search in right hand corner 
+Go to search tab and click on help  
 
-Click on ‘foreign’ package 
+Go to package tab click on package name   
 
 ?`function_name` 
 
-Help(‘’) 
+Help(‘function_name’) 
 
 ---
 background-image: url('mean_help_screen.png')
@@ -179,6 +196,35 @@ me %>%
 **Keyboard shortcut ctrl+shift +m**
 
 
+
+
+---
+
+# Loading data
+
+R has a native data format - `.RDS` 
+--
+Able to handle most file formats – xls, csv, .dta, ssd01 but also parquet files (`haven`, `arrow` packages)
+--
+R can connect to databases eg most flavours of sql 
+
+--
+
+R can access data stored locally or on the web
+
+--
+
+
+R can have multiple dataset in memory at once 
+---
+# read in our first csv
+
+
+- file>import data set
+```{r, eval=FALSE}
+read.csv('path_to_file/file_mame.csv')
+```
+
 ---
 
 class: inverse, middle, center
@@ -189,32 +235,9 @@ class: inverse, middle, center
 
 ---
 
-# Loading data
-
-R native data sets 
-
-Able to handle most file formats – excel, csv, .dta, ssd01 but also parquet files (`haven`, `arrow` packages)
-
-R can connect to databases eg most flavours of sql 
-
-R can have multiple dataset in memory at once 
-
-R can access data stored locally or on the web 
----
-# read in our first csv
-
-
-- file>import data set
-```{r, eval=FALSE}
-read.csv('path_to_file/file_mame.csv')
-```
-
-
-----
-
 # Gapminder data set
 
-- "Gapminder is an independent educational non-proﬁt ﬁghting global misconceptions"
+>"Gapminder is an independent educational non-proﬁt ﬁghting global misconceptions"
 - Downloaded using `gapminder` package
 - Based on free material from GAPMINDER.ORG, CC-BY LICENSE
 ---

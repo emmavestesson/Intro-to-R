@@ -5,8 +5,8 @@
 # writing example (words, number of days, words per day)
 
 
-words <- 10000
-number_of_days <- 8
+words <- 
+number_of_days <- 
 words_per_day <- words/days
 
 # what happens if the deadline is moved so that I get 3 more days?
